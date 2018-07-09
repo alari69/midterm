@@ -20,8 +20,9 @@ class UpdateUserTest extends TestCase
     {
         $user = new User();
         $user->name = 'Steve Smith';
-        $user->email = 'xxxx@njit.edu';
-        $user->password = 'whatever';
+        $user->email = str_random(10);
+        $user->password = str_random(10);
+
         $user->save();
 
         $this->assertTrue($user->save());
