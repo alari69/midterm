@@ -8,25 +8,22 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 
 
-
-class UpdateUserTest extends TestCase
+class DeleteUserTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testUpdateName()
+    public function testExample()
     {
         $user = new User();
-        $user->name = 'Steve Smith';
-        $user->email = 'xxxx@njit.edu';
-        $user->password = 'whatever';
+        $user->name = 'my name';
+        $user->email = 'my email';
+        $user->password = 'my password';
         $user->save();
 
-        $this->assertTrue($user->save());
+        $this->assertTrue($user->delete());
 
     }
-
-
-};
+}
