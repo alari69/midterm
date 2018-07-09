@@ -19,7 +19,7 @@ class UserCountTest extends TestCase
     {
         $users = User::All();
         $recordCount = $users->count();
-        $this->assertInternalType(IsType::TYPE_INT, $recordCount);
+        $this->assertInternalType(IsType::TYPE_INT, $recordCount=50);
 
     }
 }
