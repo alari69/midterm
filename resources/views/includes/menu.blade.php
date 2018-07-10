@@ -15,12 +15,34 @@
             <li class="nav-item">
                 <a class="nav-link" href={{route('contact')}}>Contact</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href={{route('login')}}>Login</a>
+          @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('login') }}">Login</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href={{route('register')}}>Register</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('register') }}">'Register'</a>
             </li>
+          @else
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                   {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
+              </div>
+            </li>
+          @endguest
+        <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+
+         </ul>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">

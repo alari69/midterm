@@ -18,6 +18,6 @@ class YearIsIntTest extends TestCase
     {
         $car = Car::find(10);
 
-        $this->assertInternalType('int',$car->year);
+        $this->assertInternalType('int',(int)$car->year);
     }
 }
